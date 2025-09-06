@@ -1,8 +1,8 @@
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./components/ui/card";
+// app/page.tsx
+import { Card } from "./components/ui/card";
 import Link from "next/link";
+import {Carousel} from "@/components/ui/carousel";
 import { CarouselDemo } from "./components/layouts/carousel";
-import React from "react";
-
 
 
 const productos = [
@@ -16,10 +16,12 @@ const productos = [
 
 export default function Home() {
   return (
-    <>
+      <body>
+        <div>
       <CarouselDemo />
-
-      <section className="p-8">
+        </div>
+      <main className="p-8">
+               
         <h1 className="text-3xl font-bold mb-10 text-center">Nuevos productos</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 justify-center">
@@ -39,10 +41,16 @@ export default function Home() {
                   </button>
                 </Link>
               </div>
-            </Card>
-          ))}
-        </div>
-      </section>
-    </>
+        
+            
+          </Card>
+    
+        ))}
+      </div>
+      <div>
+        
+      </div>
+    </main>
+    </body>
   );
 }

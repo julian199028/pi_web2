@@ -8,7 +8,7 @@ export default function Footer() {
         
         {/* Sección de derechos y texto */}
         <div className="mb-4 md:mb-0 text-center md:text-left">
-          <h2 className="font-bold text-lg">Artesanías</h2>
+          <h2 className="font-bold text-lg">El Arte de Vivir</h2>
           <p className="text-sm text-gray-400">© 2025 Artesanías. Todos los derechos reservados.</p>
         </div>
 

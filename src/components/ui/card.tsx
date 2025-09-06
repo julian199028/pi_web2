@@ -9,7 +9,7 @@ const Card = React.forwardRef<
     ref={ref}
     className={cn(
       // 👇 aquí controlamos el tamaño general de la card
-      "rounded-lg border bg-card text-card-foreground shadow w-72 sm:w-80 md:w-96 ml-50 ml-30" , 
+      "rounded-lg border bg-card text-card-foreground shadow w-72 sm:w-80 md:w-96  ml-30" , 
       className
     )}
     {...props}
@@ -75,4 +75,3 @@ const CardFooter = React.forwardRef<
 CardFooter.displayName = "CardFooter"
 
 export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
-
