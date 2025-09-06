@@ -28,13 +28,13 @@ export default function Home() {
                 alt={producto.nombre}
                 className="w-full h-48 object-cover"
               />
-              <div className="p-4">
-                <h2 className="font-semibold">{producto.nombre}</h2>
-                <p>${producto.precio}</p>
-                <Link href={`/producto/${producto.id}`}>
-                  <button className="mt-2 px-4 py-2 bg-blue-600 text-white rounded">
-                    Ver más
-                  </button>
+           <div className="p-4 text-center">
+              <h2 className="font-semibold">{producto.nombre}</h2>
+              <p>${producto.precio}</p>
+              <Link href={`/producto/${producto.id}`}>
+                 <button className="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 ">
+                  Añadir al carrito
+                </button> 
                 </Link>
               </div>
             </Card>
