@@ -9,6 +9,12 @@ import {
 } from '@clerk/nextjs'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import Header from "./components/layouts/Header";
+import Footer from "./components/layouts/Footer";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+
     <ClerkProvider>
       <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
@@ -51,5 +58,21 @@ export default function RootLayout({
         </body>
       </html>
     </ClerkProvider>
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
+      >
+        {/* Header siempre al inicio */}
+        <Header />
+
+        {/* Contenido dinámico */}
+        <main className="flex-grow">{children}</main>
+
+        {/* Footer siempre al final */}
+        <Footer />
+      </body>
+    </html>
+
   );
 }
+
