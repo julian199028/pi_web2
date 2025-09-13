@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
 import {
   ClerkProvider,
   SignInButton,
@@ -6,25 +6,14 @@ import {
   SignedIn,
   SignedOut,
   UserButton,
-} from '@clerk/nextjs'
-import { Geist, Geist_Mono } from 'next/font/google'
-import './globals.css'
-import type { Metadata } from "next";
+} from "@clerk/nextjs";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./components/layouts/Header";
-import Footer from "./components/layouts/Footer";
+import Footer from "./components/layouts/footer";
 
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -33,14 +22,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-
     <ClerkProvider>
       <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
+        >
+          {/* Header de tu web */}
+          <Header />
+
+          {/* Barra de sesión */}
           <header className="flex justify-end items-center p-4 gap-4 h-16">
             <SignedOut>
               <SignInButton />
@@ -54,25 +48,14 @@ export default function RootLayout({
               <UserButton />
             </SignedIn>
           </header>
-          {children}
+
+          {/* Contenido dinámico */}
+          <main className="flex-grow">{children}</main>
+
+          {/* Footer */}
+          <Footer />
         </body>
       </html>
     </ClerkProvider>
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
-      >
-        {/* Header siempre al inicio */}
-        <Header />
-
-        {/* Contenido dinámico */}
-        <main className="flex-grow">{children}</main>
-
-        {/* Footer siempre al final */}
-        <Footer />
-      </body>
-    </html>
-
   );
 }
-
